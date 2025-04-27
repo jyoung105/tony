@@ -1,103 +1,133 @@
-import Image from "next/image";
+"use client"
+
+import { Leaf, Trees, Mountain, Bird, Linkedin, Twitter, Github, Rss } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import Image from "next/image"
+import { useEffect, useState } from "react"
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY })
+    }
+
+    window.addEventListener("mousemove", handleMouseMove)
+    return () => window.removeEventListener("mousemove", handleMouseMove)
+  }, [])
+
+  return (
+    <div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-black text-white">
+      {/* Magical forest mist effect */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-30"
+        style={{
+          background: `radial-gradient(600px at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 255, 255, 0.15), transparent 80%)`,
+        }}
+      />
+
+      {/* Enchanted forest decorative elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Vine-like borders */}
+        <div className="absolute left-0 top-0 h-32 w-32">
+          <div className="absolute h-full w-[1px] bg-gradient-to-b from-white/40 to-transparent" />
+          <div className="absolute h-[1px] w-full bg-gradient-to-r from-white/40 to-transparent" />
+        </div>
+        <div className="absolute bottom-0 right-0 h-32 w-32">
+          <div className="absolute bottom-0 right-0 h-full w-[1px] bg-gradient-to-t from-white/40 to-transparent" />
+          <div className="absolute bottom-0 h-[1px] w-full bg-gradient-to-l from-white/40 to-transparent" />
+        </div>
+
+        {/* Mystical forest patterns */}
+        <div className="absolute left-8 top-8 h-64 w-64 rounded-full bg-gradient-to-br from-white/20 via-white/10 to-transparent" />
+        <div className="absolute bottom-8 right-8 h-64 w-64 rounded-full bg-gradient-to-tl from-white/20 via-white/10 to-transparent" />
+      </div>
+
+      <div className="container relative flex max-w-3xl flex-col items-center justify-center gap-8 px-4 text-center">
+        {/* Profile Image with enchanted border */}
+        <div className="relative">
+          <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-white/50 via-white/30 to-white/50 opacity-75 blur-md" />
+          <div className="relative h-24 w-24 overflow-hidden rounded-full border-2 border-white/50">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/profile.webp?height=96&width=96"
+              alt="Profile"
+              width={96}
+              height={96}
+              className="object-cover"
             />
-            Deploy now
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <h1 className="bg-gradient-to-r from-white via-gray-400 to-white bg-clip-text text-4xl font-bold tracking-tighter text-transparent sm:text-5xl">
+            Tony Lee
+          </h1>
+          <p className="text-xl text-gray-300">
+            Co-founder of{" "}
+            <a
+              href="https://www.smoretalk.io"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Smoretalk
+            </a>
+          </p>
+        </div>
+
+        <p className="max-w-[600px] text-gray-200/80 md:text-lg">
+          Hello, I am a strategist from Seoul, Korea.<br />
+          Currently involved in an AI agent.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-4">
+          {/* Social Icons */}
+          <a href="https://www.linkedin.com/in/jyoung105" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="outline"
+              size="icon"
+              className="group border-white/40 bg-black/30 text-gray-300 backdrop-blur-sm transition-all hover:border-white/60 hover:bg-black/40 hover:text-white"
+            >
+              <Linkedin className="h-5 w-5 transition-transform group-hover:scale-110" />
+              <span className="sr-only">LinkedIn</span>
+            </Button>
           </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
+          <a href="https://x.com/jeongmin1604" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="outline"
+              size="icon"
+              className="group border-white/40 bg-black/30 text-gray-300 backdrop-blur-sm transition-all hover:border-white/60 hover:bg-black/40 hover:text-white"
+            >
+              <Twitter className="h-5 w-5 transition-transform group-hover:scale-110" />
+              <span className="sr-only">Twitter</span>
+            </Button>
+          </a>
+          <a href="https://github.com/jyoung105" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="outline"
+              size="icon"
+              className="group border-white/40 bg-black/30 text-gray-300 backdrop-blur-sm transition-all hover:border-white/60 hover:bg-black/40 hover:text-white"
+            >
+              <Github className="h-5 w-5 transition-transform group-hover:scale-110" />
+              <span className="sr-only">GitHub</span>
+            </Button>
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <Button
+              variant="outline"
+              size="icon"
+              className="group border-white/40 bg-black/30 text-gray-300 backdrop-blur-sm transition-all hover:border-white/60 hover:bg-black/40 hover:text-white"
+            >
+              <Rss className="h-5 w-5 transition-transform group-hover:scale-110" />
+              <span className="sr-only">Blog</span>
+            </Button>
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </div>
+
+      <footer className="absolute bottom-4 text-sm text-white-500/60">
+        © {new Date().getFullYear()} Tony. All rights reserved.
       </footer>
     </div>
-  );
+  )
 }
