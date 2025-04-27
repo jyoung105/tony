@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://jyoung105.vercel.app/sitemap.xml',
+    sitemap: 'https://tony-lee.vercel.app/sitemap.xml',
   }
 }
