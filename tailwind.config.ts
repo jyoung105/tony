@@ -61,7 +61,18 @@ const config: Config = {
         },
       },
     },
-    plugins: [require("tailwindcss-animate")],
+    plugins: [
+      require("tailwindcss-animate"),
+      function ({ addUtilities }: any) {
+        addUtilities({
+          '.filter-noise': { 
+            filter: 'url(#noise)',
+            position: 'relative',
+            isolation: 'isolate'
+          }
+        })
+      }
+    ],
   }
 
 export default config;
