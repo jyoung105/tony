@@ -1,34 +1,33 @@
-import { FaLinkedin, FaXTwitter, FaGithub, FaRss } from "react-icons/fa6";
 import { Profile, Project } from "@/types";
 
 export const profileData: Profile = {
   name: "Tony Lee",
   title: "Co-founder of",
   description: "Smoretalk",
-  image: "/profile.webp?height=96&width=96",
+  image: "/profile.webp",
   socialLinks: [
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/in/jyoung105",
-      icon: FaLinkedin,
+      icon: "FaLinkedin",
       ariaLabel: "LinkedIn",
     },
     {
       name: "X (Twitter)",
       href: "https://x.com/jeongmin1604",
-      icon: FaXTwitter,
+      icon: "FaXTwitter",
       ariaLabel: "X (Twitter)",
     },
     {
       name: "GitHub",
       href: "https://github.com/jyoung105",
-      icon: FaGithub,
+      icon: "FaGithub",
       ariaLabel: "GitHub",
     },
     {
       name: "Blog",
       href: "#",
-      icon: FaRss,
+      icon: "FaRss",
       ariaLabel: "Blog",
     },
   ],

@@ -4,14 +4,6 @@ const nextConfig: NextConfig = {
   // Enable experimental features for better performance
   experimental: {
     optimizePackageImports: ['lucide-react', 'react-icons'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
   },
 
   // Image optimization settings
@@ -24,17 +16,11 @@ const nextConfig: NextConfig = {
   // Enable compression
   compress: true,
 
-  // Enable SWC minification for better performance
-  swcMinify: true,
-
   // Optimize build output
   output: 'standalone',
 
   // Enable React strict mode for better development experience
   reactStrictMode: true,
-
-  // Optimize fonts
-  optimizeFonts: true,
 };
 
 export default nextConfig;

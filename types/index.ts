@@ -2,7 +2,7 @@
 export interface SocialLink {
   name: string;
   href: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: string; // Icon identifier (e.g., 'FaLinkedin', 'FaGithub')
   ariaLabel: string;
 }
 
