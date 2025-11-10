@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Sun, Moon } from "lucide-react";
 
 interface HeaderProps {
   isDark: boolean;
@@ -12,12 +13,16 @@ export function Header({ isDark, onToggleTheme }: HeaderProps) {
     <header className="absolute top-4 right-4 z-50">
       <Button
         onClick={onToggleTheme}
-        variant="outline"
-        size="sm"
-        className="border-black text-black bg-white/30 backdrop-blur-sm transition-all hover:border-neutral-600 hover:bg-neutral-100 hover:text-neutral-800 dark:border-white dark:text-white dark:bg-black/30 dark:hover:border-white/60 dark:hover:bg-black/40 dark:hover:text-white"
+        variant="ghost"
+        size="icon"
+        className="cursor-pointer text-black bg-white/30 backdrop-blur-sm transition-all hover:bg-neutral-200 hover:text-neutral-900 hover:scale-110 dark:text-white dark:bg-black/30 dark:hover:bg-black/60 dark:hover:text-white group"
         aria-label="Toggle dark mode"
       >
-        {isDark ? "Light Mode" : "Dark Mode"}
+        {isDark ? (
+          <Sun className="h-4 w-4 transition-all group-hover:scale-110 group-hover:rotate-12" />
+        ) : (
+          <Moon className="h-4 w-4 transition-all group-hover:scale-110 group-hover:-rotate-12" />
+        )}
       </Button>
     </header>
   );
