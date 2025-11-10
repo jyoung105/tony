@@ -5,7 +5,7 @@ export const profileData: Profile = {
   name: "Tony Lee",
   title: "Co-founder of",
   description: "Smoretalk",
-  image: "/profile.webp",
+  image: "/profile.webp?height=96&width=96",
   socialLinks: [
     {
       name: "LinkedIn",
