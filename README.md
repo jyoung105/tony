@@ -1,4 +1,4 @@
-# Tony Lee - Personal Portfolio
+# Tony Lee
 
 A modern, fully-refactored personal portfolio website showcasing my work as a strategist, AI agent developer, and co-founder of Smoretalk.
 
