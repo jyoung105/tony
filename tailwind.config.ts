@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import tailwindAnimate from "tailwindcss-animate";
 
 const config: Config = {
     // darkMode: ["class"],
@@ -73,8 +74,8 @@ const config: Config = {
       },
     },
     plugins: [
-      require("tailwindcss-animate"),
-      function ({ addUtilities }: any) {
+      tailwindAnimate,
+      function ({ addUtilities }: { addUtilities: (utils: Record<string, string | Record<string, string>>) => void }) {
         addUtilities({
           '.filter-noise': {
             filter: 'url(#noise)',
