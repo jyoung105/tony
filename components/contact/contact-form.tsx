@@ -46,7 +46,7 @@ export function ContactForm() {
           Message Sent!
         </h3>
         <p className="text-gray-600 dark:text-gray-400">
-          Thank you for reaching out. I'll get back to you soon.
+          Thank you for reaching out. I&apos;ll get back to you soon.
         </p>
       </div>
     );
@@ -59,7 +59,7 @@ export function ContactForm() {
           Get In Touch
         </h2>
         <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Have a project in mind or just want to chat? I'd love to hear from you.
+          Have a project in mind or just want to chat? I&apos;d love to hear from you.
         </p>
       </div>
 
